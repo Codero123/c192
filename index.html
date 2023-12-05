@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Football Penalties</title>
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <script src="./scripts/walk.js"></script>
+</head>
+
+<body>
+  <a-scene id="scene">
+
+    <!--Assets-->
+    <a-assets>
+      <a-asset-item id="football" src="./models/Football.glb"></a-asset-item>
+      <a-asset-item id="goal" src="./models/Goal.glb"></a-asset-item>
+    </a-assets>
+
+    <!--A-Frame Environment-->
+    <a-entity id="environment" environment="preset: poison; skyType:gradient; lighting:point">
+    </a-entity>
+
+    <!--Light-->
+    <a-entity light="type: ambient; color: white; intensity: 1"></a-entity>
+    <a-entity light="type: directional; color: #EEE; intensity: 3" position="-1 1 0"></a-entity>
+
+    <!--Ball-->
+    <a-entity id="ball" gltf-model="#football" position="-0.3 0 -2" scale="0.05 0.05 0.05" player-movement></a-entity>
+
+    <!--Goal-->
+    <a-entity gltf-model="#goal" position="0.4 0 -17" scale="0.1 0.1 0.1" rotation="0 90 0"></a-entity>
+
+    <!--Text-->
+    <a-entity id="ins1" position="-4.62 4.25669 -7.1"
+      text="font: mozillavr; width:5; height: 5; value: Use 'zxcv' to Move the Ball">
+    </a-entity>
+
+    <a-entity id="ins1" position="-4.62 3.75669 -7.1"
+      text="font: mozillavr; width:5; height: 5; value: Use 'q' to Avtivate Powers">
+    </a-entity>
+
+    <a-entity id="ins1" position="-4.62 3.19669 -7.1"
+      text="font: mozillavr; width:5; height: 5; value: Use 'r' to Double or Half your score (50% chance)">
+    </a-entity>
+
+    <a-entity id="gameOver" position="18.53 3.75669 -8.5" visible="false"
+      text="font: mozillavr; color: red; width:50; height: 5; value: GAME OVER!">
+    </a-entity>
+
+    <a-entity id="scoreText" position="7 5 -7.1" text="font: mozillavr;width:10; height: 5; value: Score:">
+      <a-entity id="score" position="3 0 0" text="font: mozillavr; width:10; height: 5; value: 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="highscoreText" position="7 4.5 -7.1" text="font: mozillavr;width:10; height: 5; value: High Score:">
+      <a-entity id="highscore" position="3 0 0" text="font: mozillavr; width:10; height: 5; value: 0"></a-entity>
+    </a-entity>
+  </a-scene>
+</body>
+
+</html>
